@@ -7,7 +7,7 @@ ENV LAUNCH_JBOSS_IN_BACKGROUND 1
 
 USER root
 
-RUN yum install -y epel-release && yum install -y jq && yum clean all
+RUN yum install -y epel-release && yum install -y jq && yum install -y openssl && yum clean all
 
 USER jboss
 
