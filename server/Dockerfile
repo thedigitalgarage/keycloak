@@ -20,7 +20,7 @@ RUN java -jar /usr/share/java/saxon.jar -s:/opt/jboss/keycloak/standalone/config
 
 ENV JBOSS_HOME /opt/jboss/keycloak
 
-EXPOSE 8080
+EXPOSE 8080 8180 8443 8543
 
 ENTRYPOINT [ "/opt/jboss/docker-entrypoint.sh" ]
 
