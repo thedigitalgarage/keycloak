@@ -1,35 +1,26 @@
 # Keycloak Docker image
 
-Example Dockerfile with Keycloak server.
+Example Dockerfile with Keycloak server on The Digital Garage.
 
 ## Usage
 
 To boot in standalone mode
 
-    docker run jboss/keycloak
+    oc new-app thedigitalgarage/keycloak
 
-Once it boots, you can login to the admin console using admin/admin for the first login.
+Once it boots, you can login to the admin console using admin/admin for the first login. If you have not created an admin account, use the instructions below to creat the admin account with enviroment variables at build.
 
 ## Creating admin account
 
 By default there is no admin user created so you won't be able to login to the admin console. To create an admin account you need to use environment variables to pass in an initial username and password. This is done by running:
 
-    docker run -e KEYCLOAK_USER=<USERNAME> -e KEYCLOAK_PASSWORD=<PASSWORD> jboss/keycloak
-
-You can also create an account on an already running container by running:
-
-    docker exec <CONTAINER> keycloak/bin/add-user.sh -u <USERNAME> -p <PASSWORD>
-
-Then restarting the container:
-
-    docker restart <CONTAINER>
-
+    oc new-app -e KEYCLOAK_USER=<USERNAME> -e KEYCLOAK_PASSWORD=<PASSWORD> thedigitalgarage/keycloak
 
 ### Specify log level
 
 When starting the Keycloak instance you can pass a number an environment variables to set log level for Keycloak, for example:
 
-    docker run -e KEYCLOAK_LOGLEVEL=DEBUG jboss/keycloak
+    oc new-app -e KEYCLOAK_LOGLEVEL=DEBUG thedigitalgarage/keycloak
 
 ## Other details
 
